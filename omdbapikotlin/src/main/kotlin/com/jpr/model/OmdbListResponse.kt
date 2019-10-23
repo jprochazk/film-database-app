@@ -1,5 +1,6 @@
 package com.jpr.model
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.jpr.exception.OmdbNotJsonException
@@ -36,7 +37,10 @@ data class OmdbListResponse(val films: ArrayList<OmdbFilm>) : OmdbResponse {
             }
         }
 
-        private data class OmdbFilmJsonDto(var Title: String, var Year: String, var imdbID: String, var Type: String, var Poster: String) : OmdbJson
-        private data class OmdbListQueryResultJsonDto(var Search: List<OmdbFilmJsonDto>?, var totalResults: Int?, var Response: Boolean?, var Error: String?) : OmdbJson
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        private data class OmdbFilmJsonDto(var Title: String, var Year: String, var imdbID: String, var Type: String, var Poster: String)
+
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        private data class OmdbListQueryResultJsonDto(var Search: List<OmdbFilmJsonDto>?, var totalResults: Int?, var Response: Boolean?, var Error: String?)
     }
 }
