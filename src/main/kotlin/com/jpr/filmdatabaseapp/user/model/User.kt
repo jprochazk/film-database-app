@@ -25,14 +25,13 @@ data class User(
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     val tokens: Set<AccessToken> = HashSet()
-
-
 ) {
 
     constructor(email: String, name: String, picture: String, role: Role) : this(null, email, name, picture, role)
 
-    fun toDto(): UserProfileDto {
-        return UserProfileDto(this.email, this.name, this.picture)
+    data class Dto(val email: String? = null, val name: String? = null, val picture: String? = null)
+    fun toDto(): Dto {
+        return Dto(this.email, this.name, this.picture)
     }
 
     override fun equals(other: Any?): Boolean {

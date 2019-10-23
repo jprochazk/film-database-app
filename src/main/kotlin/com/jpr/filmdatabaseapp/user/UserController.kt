@@ -3,7 +3,7 @@ package com.jpr.filmdatabaseapp.user
 import com.jpr.filmdatabaseapp.exception.ResourceNotFoundException
 import com.jpr.filmdatabaseapp.security.accesstoken.AccessToken
 import com.jpr.filmdatabaseapp.user.dto.SignoutResponse
-import com.jpr.filmdatabaseapp.user.model.UserProfileDto
+import com.jpr.filmdatabaseapp.user.model.User
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.*
@@ -18,17 +18,20 @@ class UserController(
     @PreAuthorize("hasRole('USER')")
     fun getProfile(
         @PathVariable id: Int
-    ): ResponseEntity<UserProfileDto> {
-        val dto = userFacade.getUser(id.toLong()) ?: throw ResourceNotFoundException("User")
-        return ResponseEntity.ok(dto)
+    ): ResponseEntity<User.Dto> {
+        return ResponseEntity.ok(
+            userFacade.getUser(id.toLong()) ?: throw ResourceNotFoundException("User")
+        )
     }
 
     @GetMapping("/full_profile")
     @PreAuthorize("hasRole('USER')")
     fun getPersonalProfile(
         accessToken: AccessToken
-    ): ResponseEntity<UserProfileDto> {
-        return ResponseEntity.ok(accessToken.user!!.toDto())
+    ): ResponseEntity<User.Dto> {
+        return ResponseEntity.ok(
+            accessToken.user!!.toDto()
+        )
     }
 
     @PostMapping("/signout")
