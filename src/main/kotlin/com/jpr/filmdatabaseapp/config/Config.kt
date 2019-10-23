@@ -33,6 +33,11 @@ class WebMvcConfig : WebMvcConfigurer {
         return UserAccessTokenArgResolver()
     }
 
+    @Bean
+    fun userClientInfoArgResolver(): UserClientInfoArgResolver {
+        return UserClientInfoArgResolver()
+    }
+
     override fun addCorsMappings(registry: CorsRegistry) {
         registry.addMapping("/**")
             .allowedOrigins("*")
@@ -41,8 +46,8 @@ class WebMvcConfig : WebMvcConfigurer {
     }
 
     override fun addArgumentResolvers(resolvers: MutableList<HandlerMethodArgumentResolver>) {
-        resolvers.add(UserClientInfoArgResolver())
         resolvers.add(userAccessTokenArgResolver())
+        resolvers.add(userClientInfoArgResolver())
     }
 }
 

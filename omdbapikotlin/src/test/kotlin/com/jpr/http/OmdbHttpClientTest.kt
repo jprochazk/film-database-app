@@ -18,6 +18,14 @@ import org.junit.Test
 import java.net.URI
 import java.nio.charset.StandardCharsets
 
+/**
+ * I could not think of a way to test these:
+ * Forbidden exception - would require sending over 1000 requests
+ * Bad request exception - would require a working API key. The API key is unique, so has to remain private
+ *      -- this can however be partially tested for by testing whether my query builder is functioning properly.
+ *      -- If the outgoing requests are as the API expects, there should be no problem.
+ * Unknown error exception - errors that I can't predict
+ */
 class OmdbHttpClientTest {
 
     @Before
@@ -47,6 +55,7 @@ class OmdbHttpClientTest {
         try {
             query.send()
         } catch(e: Exception) {
+            println(e.toString())
             assertTrue(e is OmdbNotJsonException)
             assertTrue(e.message == "Response from OMDB Api contains no JSON, please check query URI parameters")
         }

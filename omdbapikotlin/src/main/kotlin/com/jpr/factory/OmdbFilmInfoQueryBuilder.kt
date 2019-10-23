@@ -10,7 +10,7 @@ class OmdbFilmInfoQueryBuilder(private val apiKey: String, baseURI: String = "ht
     private val uriBuilder = URIBuilder(baseURI)
 
     fun build(): OmdbQuery {
-        if(this.imdbID == null) throw OmdbQueryBuilderNullParamException("title")
+        if(this.imdbID == null) throw OmdbQueryBuilderNullParamException("imdbID")
 
         return OmdbQuery(OmdbQuery.Type.INFO, uriBuilder.build())
     }

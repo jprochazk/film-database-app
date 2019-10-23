@@ -6,6 +6,8 @@ import org.springframework.web.bind.support.WebDataBinderFactory
 import org.springframework.web.context.request.NativeWebRequest
 import org.springframework.web.method.support.HandlerMethodArgumentResolver
 import org.springframework.web.method.support.ModelAndViewContainer
+import javax.servlet.http.HttpServletRequest
+
 
 class UserClientInfoArgResolver : HandlerMethodArgumentResolver {
     private val log = LoggerFactory.getLogger(this.javaClass)
@@ -20,7 +22,17 @@ class UserClientInfoArgResolver : HandlerMethodArgumentResolver {
         webRequest: NativeWebRequest,
         dataBinderFactory: WebDataBinderFactory?
     ): Any? {
+        val ip = webRequest.toHttpServletRequest()?.getActualRemoteAddr()
+        log.info("IP: $ip")
+        if(ip == null) throw Exception("Could not get IP address of user!")
+        return UserClientInfo(ip)
+    }
 
-        return UserClientInfo("IP ADDRESS")
+    private fun NativeWebRequest.toHttpServletRequest(): HttpServletRequest? {
+        return this.getNativeRequest(HttpServletRequest::class.java)
+    }
+
+    private fun HttpServletRequest.getActualRemoteAddr(): String? {
+        return this.getHeader("X-FORWARDED-FOR") ?: this.remoteAddr
     }
 }

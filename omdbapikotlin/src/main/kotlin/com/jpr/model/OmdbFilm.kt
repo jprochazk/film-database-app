@@ -22,6 +22,7 @@ data class OmdbFilm(
         }
 
         companion object {
+            @JvmStatic
             fun fromString(name: String): Type {
                 return when (name) {
                     "any" -> ANY
