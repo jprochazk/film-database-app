@@ -70,6 +70,11 @@
 			<artifactId>google-api-client</artifactId>
 			<version>1.30.2</version>
 		</dependency>
+		<dependency>
+			<groupId>com.jpr</groupId>
+			<artifactId>flashback-test-utils</artifactId>
+			<version>0.0.4</version>
+		</dependency>
 	</dependencies>
 
 	<build>

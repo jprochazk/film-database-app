@@ -24,7 +24,7 @@ data class OmdbFilm(
         companion object {
             @JvmStatic
             fun fromString(name: String): Type {
-                return when (name) {
+                return when (name.toLowerCase()) {
                     "any" -> ANY
                     "movie" -> MOVIE
                     "series" -> SERIES

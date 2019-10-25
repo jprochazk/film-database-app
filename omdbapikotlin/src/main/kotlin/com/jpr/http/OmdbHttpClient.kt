@@ -2,15 +2,35 @@ package com.jpr.http
 
 import com.jpr.exception.*
 import com.jpr.model.*
+import org.apache.http.HttpHost
+import org.apache.http.client.HttpClient
 import org.apache.http.client.methods.CloseableHttpResponse
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.impl.client.CloseableHttpClient
+import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.impl.client.HttpClients
 import java.io.Closeable
 import java.net.URI
 
-class OmdbHttpClient : Closeable {
-    private val client: CloseableHttpClient = HttpClients.createDefault()
+class OmdbHttpClient(private val client: CloseableHttpClient) : Closeable {
+
+    class Builder() {
+        private var proxy: HttpHost? = null
+
+        fun proxy(proxy: HttpHost): Builder {
+            this.proxy = proxy
+
+            return this
+        }
+
+        fun build(): OmdbHttpClient {
+            val httpClient =
+                if(this.proxy != null) HttpClientBuilder.create().setProxy(this.proxy).build()
+                else HttpClients.createDefault()
+
+            return OmdbHttpClient(httpClient)
+        }
+    }
 
     fun execute(query: OmdbQuery): OmdbResponse {
         return internalHandleResponse(internalExecuteGetRequest(query.requestURI), query.type)

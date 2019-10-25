@@ -7,22 +7,11 @@ import org.junit.Test
 
 class OmdbFilmInfoQueryBuilderTest {
 
-    // @Test(expected = OmdbQueryBuilderNullParamException)
-    // ^ Currently not possible. See https://youtrack.jetbrains.com/issue/KT-16304
-    @Test
+    @Test(expected = OmdbQueryBuilderNullParamException::class)
     fun `Id not set throws exception`() {
         val builder = OmdbFilmInfoQueryBuilder("APIKEY")
 
-        try {
-            builder.build()
-        } catch(expected: Exception) {
-            println(expected.toString())
-            val actual = OmdbQueryBuilderNullParamException("imdbID")
-            println(actual.toString())
-
-            assertTrue(expected is OmdbQueryBuilderNullParamException)
-            assertTrue(expected.message == "Parameter imdbID is required")
-        }
+        builder.build()
     }
 
     @Test

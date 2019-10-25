@@ -7,18 +7,11 @@ import org.junit.Test
 
 class OmdbFilmListQueryBuilderTest {
 
-    // @Test(expected = OmdbQueryBuilderNullParamException)
-    // ^ Currently not possible. See https://youtrack.jetbrains.com/issue/KT-16304
-    @Test
+    @Test(expected = OmdbQueryBuilderNullParamException::class)
     fun `Title not set throws exception`() {
         val builder = OmdbFilmListQueryBuilder("APIKEY")
 
-        try {
-            builder.build()
-        } catch(e: Exception) {
-            assertTrue(e is OmdbQueryBuilderNullParamException)
-            assertTrue(e.message == "Parameter title is required")
-        }
+        builder.build()
     }
 
     @Test

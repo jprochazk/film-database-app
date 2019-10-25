@@ -8,7 +8,7 @@ data class OmdbQuery(val type: Type, val requestURI: URI) {
         LIST, INFO;
     }
     fun send(): OmdbResponse {
-        OmdbHttpClient().use {
+        OmdbHttpClient.Builder().build().use {
             return it.execute(this)
         }
     }

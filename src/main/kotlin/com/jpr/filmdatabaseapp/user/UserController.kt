@@ -1,6 +1,5 @@
 package com.jpr.filmdatabaseapp.user
 
-import com.jpr.filmdatabaseapp.exception.ResourceNotFoundException
 import com.jpr.filmdatabaseapp.security.accesstoken.AccessToken
 import com.jpr.filmdatabaseapp.user.dto.SignoutResponse
 import com.jpr.filmdatabaseapp.user.model.User
@@ -14,19 +13,9 @@ class UserController(
     private val userFacade: UserFacade
 ) {
 
-    @GetMapping("/profile/{id}")
+    @GetMapping("/profile")
     @PreAuthorize("hasRole('USER')")
-    fun getProfile(
-        @PathVariable id: Int
-    ): ResponseEntity<User.Dto> {
-        return ResponseEntity.ok(
-            userFacade.getUser(id.toLong()) ?: throw ResourceNotFoundException("User")
-        )
-    }
-
-    @GetMapping("/full_profile")
-    @PreAuthorize("hasRole('USER')")
-    fun getPersonalProfile(
+    fun getUserProfile(
         accessToken: AccessToken
     ): ResponseEntity<User.Dto> {
         return ResponseEntity.ok(

@@ -22,9 +22,7 @@ class UserClientInfoArgResolver : HandlerMethodArgumentResolver {
         webRequest: NativeWebRequest,
         dataBinderFactory: WebDataBinderFactory?
     ): Any? {
-        val ip = webRequest.toHttpServletRequest()?.getActualRemoteAddr()
-        log.info("IP: $ip")
-        if(ip == null) throw Exception("Could not get IP address of user!")
+        val ip = webRequest.toHttpServletRequest()?.getActualRemoteAddr() ?: throw Exception("Could not get IP address of user!")
         return UserClientInfo(ip)
     }
 
