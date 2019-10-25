@@ -1,8 +1,9 @@
+package com.jpr.flashbacktestutils;
+
 import com.linkedin.flashback.factory.SceneFactory;
 import com.linkedin.flashback.scene.Scene;
 import com.linkedin.flashback.scene.SceneConfiguration;
 import com.linkedin.flashback.scene.SceneMode;
-import org.junit.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,6 +1,6 @@
 package com.jpr.filmdatabaseapp.query
 
-import FlashbackBaseTest
+import com.jpr.flashbacktestutils.FlashbackBaseTest
 import com.jpr.factory.OmdbFilmListQueryBuilder
 import com.jpr.http.OmdbHttpClient
 import com.jpr.model.OmdbFilm
