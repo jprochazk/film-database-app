@@ -5,6 +5,7 @@ target/
 !**/src/test/**
 
 /src/main/resources/sensitive.properties
+flashback_scenes/
 
 ### STS ###
 .apt_generated
