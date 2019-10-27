@@ -1,11 +1,12 @@
 package com.jpr.filmdatabaseapp.query
 
-import com.jpr.flashbacktestutils.FlashbackBaseTest
 import com.jpr.factory.OmdbFilmListQueryBuilder
+import com.jpr.flashbacktestutils.FlashbackBaseTest
 import com.jpr.http.OmdbHttpClient
 import com.jpr.model.OmdbFilm
 import com.jpr.model.OmdbListResponse
 import com.linkedin.flashback.matchrules.MatchRuleUtils
+import org.apache.http.HttpHost
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -35,7 +36,7 @@ class QueryControllerApiTest : FlashbackBaseTest() {
             .page(1)
             .build()
 
-        val httpClient = OmdbHttpClient.Builder().proxy(Flashback.proxy).build()
+        val httpClient = OmdbHttpClient.Builder().proxy(HttpHost(Flashback.proxyHost, Flashback.proxyPort)).build()
         httpClient.use {
             client ->
 
