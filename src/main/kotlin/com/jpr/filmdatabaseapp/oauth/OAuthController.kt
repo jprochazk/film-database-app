@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/oauth")
 class OAuthController(private val googleOauthFacade: GoogleOAuthFacade) {
 
-    private val log = LoggerFactory.getLogger(this.javaClass)
-
     @PostMapping("/google")
     fun google(
         @RequestBody OAuthRequest: GoogleOAuthRequest,

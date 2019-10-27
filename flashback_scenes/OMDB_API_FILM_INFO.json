@@ -1,0 +1,44 @@
+{
+  "NAME" : "OMDB_API_FILM_INFO.json",
+  "HTTPEXCHANGELIST" : {
+    "HTTPEXCHANGE1" : {
+      "UPDATETIME" : "27 Oct 2019 11:02:21 GMT",
+      "HTTPREQUEST" : {
+        "HTTPMETHOD" : "GET",
+        "HTTPURI" : "http://www.omdbapi.com/?apikey=API_KEY&r=json&i=tt1375666",
+        "HTTPHEADERS" : {
+          "Host" : "www.omdbapi.com",
+          "Proxy-Connection" : "Keep-Alive",
+          "User-Agent" : "Apache-HttpClient/4.5.10 (Java/12.0.2)",
+          "Accept-Encoding" : "gzip,deflate"
+        },
+        "BINARYHTTPBODY" : ""
+      },
+      "HTTPRESPONSE" : {
+        "HTTPSTATUSCODE" : 200,
+        "HTTPHEADERS" : {
+          "Date" : "Sun, 27 Oct 2019 11:02:21 GMT",
+          "Content-Type" : "application/json; charset=utf-8",
+          "Transfer-Encoding" : "chunked",
+          "Connection" : "keep-alive",
+          "Set-Cookie" : "__cfduid=d6a9e795154a38d738cb900ab7b6a3b641572174141; expires=Mon, 26-Oct-20 11:02:21 GMT; path=/; domain=.omdbapi.com; HttpOnly",
+          "Cache-Control" : "public, max-age=86400",
+          "Expires" : "Mon, 28 Oct 2019 11:02:21 GMT",
+          "Last-Modified" : "Sun, 27 Oct 2019 11:02:21 GMT",
+          "Vary" : "*, Accept-Encoding",
+          "X-AspNet-Version" : "4.0.30319",
+          "X-Powered-By" : "ASP.NET",
+          "Access-Control-Allow-Origin" : "*",
+          "CF-Cache-Status" : "MISS",
+          "Server" : "cloudflare",
+          "CF-RAY" : "52c42d616db47bf4-PRG",
+          "Content-Encoding" : "gzip"
+        },
+        "ENCODEDHTTPBODY" : {
+          "HTTPBODYENCODING" : "gzip",
+          "STRINGHTTPBODY" : "{\"Title\":\"Inception\",\"Year\":\"2010\",\"Rated\":\"PG-13\",\"Released\":\"16 Jul 2010\",\"Runtime\":\"148 min\",\"Genre\":\"Action, Adventure, Sci-Fi, Thriller\",\"Director\":\"Christopher Nolan\",\"Writer\":\"Christopher Nolan\",\"Actors\":\"Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy\",\"Plot\":\"A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.\",\"Language\":\"English, Japanese, French\",\"Country\":\"USA, UK\",\"Awards\":\"Won 4 Oscars. Another 152 wins & 204 nominations.\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg\",\"Ratings\":[{\"Source\":\"Internet Movie Database\",\"Value\":\"8.8/10\"},{\"Source\":\"Rotten Tomatoes\",\"Value\":\"87%\"},{\"Source\":\"Metacritic\",\"Value\":\"74/100\"}],\"Metascore\":\"74\",\"imdbRating\":\"8.8\",\"imdbVotes\":\"1,883,433\",\"imdbID\":\"tt1375666\",\"Type\":\"movie\",\"DVD\":\"07 Dec 2010\",\"BoxOffice\":\"$292,568,851\",\"Production\":\"Warner Bros. Pictures\",\"Website\":\"N/A\",\"Response\":\"True\"}"
+        }
+      }
+    }
+  }
+}

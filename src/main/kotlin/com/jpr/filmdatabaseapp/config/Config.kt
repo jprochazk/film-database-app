@@ -3,7 +3,7 @@ package com.jpr.filmdatabaseapp.config
 import com.jpr.filmdatabaseapp.security.AccessTokenFilter
 import com.jpr.filmdatabaseapp.security.TokenAuthenticationEntryPoint
 import com.jpr.filmdatabaseapp.security.UserClientInfoArgResolver
-import com.jpr.filmdatabaseapp.user.UserAccessTokenArgResolver
+import com.jpr.filmdatabaseapp.security.UserAccessTokenArgResolver
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean

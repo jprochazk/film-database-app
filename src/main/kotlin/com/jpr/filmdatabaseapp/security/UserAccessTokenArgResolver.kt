@@ -1,5 +1,6 @@
-package com.jpr.filmdatabaseapp.user
+package com.jpr.filmdatabaseapp.security
 
+import com.jpr.filmdatabaseapp.exception.UnauthorizedException
 import com.jpr.filmdatabaseapp.security.accesstoken.AccessToken
 import com.jpr.filmdatabaseapp.security.accesstoken.repository.AccessTokenRepository
 import org.slf4j.LoggerFactory
@@ -32,8 +33,7 @@ class UserAccessTokenArgResolver : HandlerMethodArgumentResolver {
         webRequest: NativeWebRequest,
         dataBinderFactory: WebDataBinderFactory?
     ): Any? {
-        val tokenValue = webRequest.getHeader(accessTokenHeaderName)
-        if(tokenValue == null || tokenValue == "undefined") return null
-        return accessTokenRepository.findByTokenWithUser(tokenValue) ?: throw Exception("Could not find access token in repository")
+        val tokenValue = webRequest.getHeader(accessTokenHeaderName) ?: throw UnauthorizedException()
+        return accessTokenRepository.findByTokenWithUser(tokenValue) ?: throw UnauthorizedException()
     }
 }

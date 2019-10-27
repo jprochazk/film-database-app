@@ -12,14 +12,18 @@ import com.jpr.filmdatabaseapp.security.accesstoken.AccessTokenProvider
 import com.jpr.filmdatabaseapp.user.model.Role
 import com.jpr.filmdatabaseapp.user.model.User
 import com.jpr.filmdatabaseapp.user.repository.UserRepository
-import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import javax.transaction.Transactional
 
 @Service
-class GoogleOAuthFacade(private val userRepository: UserRepository) {
+class GoogleOAuthFacade(
+    private val userRepository: UserRepository,
+    private val netHttpTransport: NetHttpTransport = NetHttpTransport(),
+    private val jacksonFactory: JacksonFactory = JacksonFactory()
+) {
+
     @Value("\${app.google.oauth.clientId}")
     lateinit var clientId: String
 
@@ -28,8 +32,6 @@ class GoogleOAuthFacade(private val userRepository: UserRepository) {
 
     @Autowired
     lateinit var tokenProvider: AccessTokenProvider
-
-    private val log = LoggerFactory.getLogger(this.javaClass)
 
     @Transactional
     fun authenticate(userClientInfo: UserClientInfo, authCode: String, type: String): AccessToken {
@@ -49,16 +51,14 @@ class GoogleOAuthFacade(private val userRepository: UserRepository) {
     }
 
     private fun getIdToken(authCode: String, type: String): GoogleIdToken {
-        val transport = NetHttpTransport()
-        val factory = JacksonFactory()
         val tokenRequest = GoogleAuthorizationCodeTokenRequest(
-            transport, factory,
+            netHttpTransport, jacksonFactory,
             clientId, clientSecret,
             authCode, type)
         val tokenResponse = tokenRequest.execute()
 
-        val idToken = GoogleIdToken.parse(factory, tokenResponse.idToken)
-        if(!GoogleIdTokenVerifier(transport, factory).verify(idToken))
+        val idToken = GoogleIdToken.parse(jacksonFactory, tokenResponse.idToken)
+        if(!GoogleIdTokenVerifier(netHttpTransport, jacksonFactory).verify(idToken))
             throw OAuthException()
 
         return idToken

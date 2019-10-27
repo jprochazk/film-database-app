@@ -1,11 +1,28 @@
 package com.jpr.filmdatabaseapp.user
 
+import com.jpr.filmdatabaseapp.exception.ExceptionResponse
+import com.jpr.filmdatabaseapp.exception.UnauthorizedException
 import com.jpr.filmdatabaseapp.security.accesstoken.AccessToken
 import com.jpr.filmdatabaseapp.user.dto.SignoutResponse
 import com.jpr.filmdatabaseapp.user.model.User
 import org.springframework.http.ResponseEntity
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.context.request.WebRequest
+import java.lang.Exception
+
+@ControllerAdvice
+class UserControllerAdvice {
+
+    @ExceptionHandler(UnauthorizedException::class)
+    fun handleUnauthorizedException(e: Exception, request: WebRequest): ResponseEntity<ExceptionResponse> {
+        e as UnauthorizedException
+
+        return ResponseEntity
+            .status(e.status)
+            .body(ExceptionResponse(e.message!!))
+    }
+}
 
 @RestController
 @RequestMapping("/user")

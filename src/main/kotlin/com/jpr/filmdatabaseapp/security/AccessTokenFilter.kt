@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse
 
 // filter that will search a custom header for a token
 // and authorize the request based on it
-class AccessTokenFilter() : OncePerRequestFilter() {
+class AccessTokenFilter : OncePerRequestFilter() {
 
     @Autowired
     lateinit var userRepository: UserRepository

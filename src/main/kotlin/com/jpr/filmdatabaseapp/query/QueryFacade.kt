@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 
 @Service
-class QueryFacade(val client: OmdbHttpClient = OmdbHttpClient.Builder().build()) {
+class QueryFacade(
+    val client: OmdbHttpClient = OmdbHttpClient.Builder().build()
+) {
 
     @Value("\${app.omdbApiKey}")
     lateinit var apiKey: String

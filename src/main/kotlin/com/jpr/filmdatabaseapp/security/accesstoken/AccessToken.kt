@@ -19,4 +19,6 @@ data class AccessToken(
 
     @Embedded
     val userClientInfo: UserClientInfo?
-)
+) {
+
+}

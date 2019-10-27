@@ -1,0 +1,45 @@
+{
+  "NAME" : "OMDB_API_FILM_LIST.json",
+  "HTTPEXCHANGELIST" : {
+    "HTTPEXCHANGE1" : {
+      "UPDATETIME" : "27 Oct 2019 10:40:30 GMT",
+      "HTTPREQUEST" : {
+        "HTTPMETHOD" : "GET",
+        "HTTPURI" : "http://www.omdbapi.com/?apikey=API_KEY&r=json&s=inception&page=1",
+        "HTTPHEADERS" : {
+          "Host" : "www.omdbapi.com",
+          "Proxy-Connection" : "Keep-Alive",
+          "User-Agent" : "Apache-HttpClient/4.5.10 (Java/12.0.2)",
+          "Accept-Encoding" : "gzip,deflate"
+        },
+        "BINARYHTTPBODY" : ""
+      },
+      "HTTPRESPONSE" : {
+        "HTTPSTATUSCODE" : 200,
+        "HTTPHEADERS" : {
+          "Date" : "Sun, 27 Oct 2019 10:40:30 GMT",
+          "Content-Type" : "application/json; charset=utf-8",
+          "Transfer-Encoding" : "chunked",
+          "Connection" : "keep-alive",
+          "Set-Cookie" : "__cfduid=df4e332cf9ca3839349f1d3ad0257de261572172830; expires=Mon, 26-Oct-20 10:40:30 GMT; path=/; domain=.omdbapi.com; HttpOnly",
+          "Cache-Control" : "public, max-age=86400",
+          "Expires" : "Mon, 28 Oct 2019 10:40:30 GMT",
+          "Last-Modified" : "Sat, 26 Oct 2019 11:00:36 GMT",
+          "Vary" : "*, Accept-Encoding",
+          "X-AspNet-Version" : "4.0.30319",
+          "X-Powered-By" : "ASP.NET",
+          "Access-Control-Allow-Origin" : "*",
+          "CF-Cache-Status" : "HIT",
+          "Age" : "85194",
+          "Server" : "cloudflare",
+          "CF-RAY" : "52c40d5e2c533e24-PRG",
+          "Content-Encoding" : "gzip"
+        },
+        "ENCODEDHTTPBODY" : {
+          "HTTPBODYENCODING" : "gzip",
+          "STRINGHTTPBODY" : "{\"Search\":[{\"Title\":\"Inception\",\"Year\":\"2010\",\"imdbID\":\"tt1375666\",\"Type\":\"movie\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg\"},{\"Title\":\"Inception: The Cobol Job\",\"Year\":\"2010\",\"imdbID\":\"tt5295894\",\"Type\":\"movie\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BMjE0NGIwM2EtZjQxZi00ZTE5LWExN2MtNDBlMjY1ZmZkYjU3XkEyXkFqcGdeQXVyNjMwNzk3Mjk@._V1_SX300.jpg\"},{\"Title\":\"Inception: Motion Comics\",\"Year\":\"2010–\",\"imdbID\":\"tt1790736\",\"Type\":\"series\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BNGRkYzkzZmEtY2YwYi00ZTlmLTgyMTctODE0NTNhNTVkZGIxXkEyXkFqcGdeQXVyNjE4MDMwMjk@._V1_SX300.jpg\"},{\"Title\":\"Inception: Jump Right Into the Action\",\"Year\":\"2010\",\"imdbID\":\"tt5295990\",\"Type\":\"movie\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BZGFjOTRiYjgtYjEzMS00ZjQ2LTkzY2YtOGQ0NDI2NTVjOGFmXkEyXkFqcGdeQXVyNDQ5MDYzMTk@._V1_SX300.jpg\"},{\"Title\":\"Inception\",\"Year\":\"2014\",\"imdbID\":\"tt7321322\",\"Type\":\"movie\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BYWJmYWJmNWMtZTBmNy00M2MzLTg5ZWEtOGU5ZWRiYTE0ZjVmXkEyXkFqcGdeQXVyNzkyOTM2MjE@._V1_SX300.jpg\"},{\"Title\":\"Inception: 4Movie Premiere Special\",\"Year\":\"2010\",\"imdbID\":\"tt1686778\",\"Type\":\"movie\",\"Poster\":\"N/A\"},{\"Title\":\"Inception: In 60 Seconds\",\"Year\":\"2013\",\"imdbID\":\"tt3262402\",\"Type\":\"movie\",\"Poster\":\"N/A\"},{\"Title\":\"Bikini Inception\",\"Year\":\"2015\",\"imdbID\":\"tt8269586\",\"Type\":\"movie\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BNDk3NTNmNGEtOWJkYi00NGEyLThkZDQtOTBlZmRhN2IwYTk0XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg\"},{\"Title\":\"On Inception (TOI and MOI)\",\"Year\":\"2011\",\"imdbID\":\"tt4341988\",\"Type\":\"movie\",\"Poster\":\"N/A\"},{\"Title\":\"Needle Drop Inception\",\"Year\":\"2016\",\"imdbID\":\"tt4650070\",\"Type\":\"movie\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BNzJkYmU4MzUtN2ZhOS00MWYzLWI4YTUtNTQ3MWJkZGQ4ZTliXkEyXkFqcGdeQXVyMTIxMzc3MDQ@._V1_SX300.jpg\"}],\"totalResults\":\"17\",\"Response\":\"True\"}"
+        }
+      }
+    }
+  }
+}
